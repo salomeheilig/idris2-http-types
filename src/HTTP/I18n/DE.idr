@@ -1,4 +1,4 @@
-module HTTP.I18n.EN
+module HTTP.I18n.DE
 
 import HTTP.API.Decode
 import HTTP.RequestErr
@@ -9,33 +9,33 @@ import public HTTP.I18n
 
 export
 [HTTPEN] HTTPLocal where
-  endOfURIPath = "unexpected end of URI path"
-  floatingPointNumber = "floating point number"
-  integer = "integer"
-  invalidPath = "invalid URI path"
-  jsonValue = "JSON value"
+  endOfURIPath = "Unerwartetes Ende des URI-Pfads"
+  floatingPointNumber = "Fliesskommazahl"
+  integer = "Ganzzahl"
+  invalidPath = "Ungültiger URI-Pfad"
+  jsonValue = "JSON Wert"
   logLevel = interpolate
-  missingBoundary = "invalid form-data header: missing boundary"
-  missingFormDataPart p ps = "missing form-data part: \{p} (parts: \{ps})"
-  missingHeader h = "missing HTTP header: \{h}"
-  missingQueryParameter n = "missing query parameter: '\{n}'"
-  missingQueryValue n = "missing query value: '\{n}'"
-  myMediaTypeNotAccepted x y = "i provide \{x} but requests accepts only \{y}"
-  unsignedInteger = "unsigned integer"
-  naturalNumber = "natural number"
+  missingBoundary = "Form-Data-Header ungültig: Grenzwert-Angabe fehlt"
+  missingFormDataPart p ps = "Fehlender Form-Data-Teil: \{p} (Teil: \{ps})"
+  missingHeader h = "Fehlender HTTP-Header"
+  missingQueryParameter n = "Fehlender Abfrageparameter: '\{n}'"
+  missingQueryValue n = "Fehlender Abfragewert: '\{n}'"
+  myMediaTypeNotAccepted x y = "\{x} angegeben, aber es werden nur \{y} akzeptiert"
+  unsignedInteger = "Ganzzahl ohne Vorzeichen"
+  naturalNumber = "Natürliche Zahl"
   outOfBounds a b =
-    "Value out of bounds. It should be between \{show a} and \{show b}."
+    "Wert außerhalb des gültigen Bereichs. Er muss zwischen \{show a} und \{show b} liegen."
 
   prettyRequestErr (RE s e m d p) =
     """
-    Error Details:
-    status  : \{show s}
-    error   : \{e}
-    message : \{m}
-    details : \{d}
-    path    : \{p}
+    Fehler Details:
+    Status    : \{show s}
+    Fehler    : \{e}
+    Nachricht : \{m}
+    Details   : \{d}
+    Pfad      : \{p}
     """
 
-  prettyDecodeErr (ReadErr t s d) = "invalid \{t}\{valueString s}"
-  prettyDecodeErr (ContentErr t d) = "invalid \{t}"
+  prettyDecodeErr (ReadErr t s d) = "Ungültig \{t}\{valueString s}"
+  prettyDecodeErr (ContentErr t d) = "Ungültig \{t}"
   prettyDecodeErr (Msg msg) = msg
