@@ -7,6 +7,14 @@ import public HTTP.I18n
 
 %default total
 
+showDELogLevel : LogLevel -> String
+showDELogLevel Trace = "Ablaufverfolgung"
+showDELogLevel Debug = "Fehlersuche"
+showDELogLevel Info = "Information"
+showDELogLevel Warn = "Warnung"
+showDELogLevel Error = "Fehler"
+showDELogLevel Fatal = "Schwerwiegender Fehler"
+
 export
 [HTTPDE] HTTPLocal where
   endOfURIPath = "Unerwartetes Ende des URI-Pfads"
@@ -14,7 +22,7 @@ export
   integer = "Ganzzahl"
   invalidPath = "Ungültiger URI-Pfad"
   jsonValue = "JSON Wert"
-  logLevel = interpolate
+  logLevel = showDELogLevel
   missingBoundary = "Form-Data-Header ungültig: Grenzwert-Angabe fehlt"
   missingFormDataPart p ps = "Fehlender Form-Data-Teil: \{p} (Teil: \{ps})"
   missingHeader h = "Fehlender HTTP-Header"
@@ -39,3 +47,5 @@ export
   prettyDecodeErr (ReadErr t s d) = "Ungültig \{t}\{valueString s}"
   prettyDecodeErr (ContentErr t d) = "Ungültig \{t}"
   prettyDecodeErr (Msg msg) = msg
+
+
