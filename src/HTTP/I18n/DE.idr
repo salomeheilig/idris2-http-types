@@ -22,7 +22,13 @@ export
   integer = "Ganzzahl"
   invalidPath = "Ungültiger URI-Pfad"
   jsonValue = "JSON Wert"
-  logLevel = showDELogLevel
+  logLevel l = case l of
+                    Trace => ?foo_0
+                    Debug => ?foo_1
+                    Info => ?foo_2
+                    Warn => ?foo_3
+                    Error => ?foo_4
+                    Fatal => ?foo_5
   missingBoundary = "Form-Data-Header ungültig: Grenzwert-Angabe fehlt"
   missingFormDataPart p ps = "Fehlender Form-Data-Teil: \{p} (Teil: \{ps})"
   missingHeader h = "Fehlender HTTP-Header"
