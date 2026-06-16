@@ -8,7 +8,7 @@ import public HTTP.I18n
 %default total
 
 export
-[HTTPEN] HTTPLocal where
+[HTTPDE] HTTPLocal where
   endOfURIPath = "Unerwartetes Ende des URI-Pfads"
   floatingPointNumber = "Fliesskommazahl"
   integer = "Ganzzahl"
