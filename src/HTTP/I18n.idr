@@ -26,6 +26,12 @@ Eq HTTPlang where
   (==) German German   = True
   (==) _ _             = False
 
+export
+Ord HTTPlang where
+  compare English German = LT
+  compare German English = GT
+  compare _ _            = EQ
+
 public export
 interface HTTPLocal where
   endOfURIPath           : String
