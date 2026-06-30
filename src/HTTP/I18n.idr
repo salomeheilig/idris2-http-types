@@ -13,6 +13,20 @@ import Text.ILex
 %default total
 
 public export
+data HTTPlang = English | German
+
+export
+Show HTTPlang where
+  show English = "english"
+  show German  = "german"
+
+export
+Eq HTTPlang where
+  (==) English English = True
+  (==) German German   = True
+  (==) _ _             = False
+
+public export
 interface HTTPLocal where
   endOfURIPath           : String
   floatingPointNumber    : String
