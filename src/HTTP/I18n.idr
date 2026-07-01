@@ -39,8 +39,7 @@ Finite HTTPlang where
 
 export
 Interpolation HTTPlang where
-  interpolate English = "English"
-  interpolate German  = "German"
+  interpolate = show
 
 public export
 interface HTTPLocal where
