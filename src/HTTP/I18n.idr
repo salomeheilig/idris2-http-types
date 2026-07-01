@@ -9,6 +9,7 @@ import HTTP.Status
 import JSON.Simple
 import IO.Async.Logging
 import Text.ILex
+import Data.Finite
 
 %default total
 
@@ -31,6 +32,15 @@ Ord HTTPlang where
   compare English German = LT
   compare German English = GT
   compare _ _            = EQ
+
+export
+Finite HTTPlang where
+  values = [English, German]
+
+export
+Interpolation HTTPlang where
+  interpolate English = "English"
+  interpolate German  = "German"
 
 public export
 interface HTTPLocal where
